@@ -25,8 +25,10 @@ test('Click checkbox and button is disabled', () => {
 	fireEvent.click(checkbox);
 	expect(checkbox).toBeChecked();
 	expect(button).toBeDisabled();
+	expect(button).toHaveStyle('backgroundColor: gray');
 	// click again and the button should be enabled
 	fireEvent.click(checkbox);
 	expect(checkbox).not.toBeChecked();
 	expect(button).toBeEnabled();
+	expect(button).not.toHaveStyle('backgroundColor: gray');
 });

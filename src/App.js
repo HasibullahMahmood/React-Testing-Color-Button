@@ -4,11 +4,12 @@ import './App.css';
 function App() {
 	const [isRed, setIsRed] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
-
+	let backgroundColor = isRed ? 'red' : 'blue';
+	backgroundColor = isChecked ? 'gray' : backgroundColor;
 	return (
 		<div>
 			<button
-				style={{ backgroundColor: isRed ? 'red' : 'blue' }}
+				style={{ backgroundColor }}
 				onClick={() => {
 					setIsRed((prevState) => !prevState);
 				}}
