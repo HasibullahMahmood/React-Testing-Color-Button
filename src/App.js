@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
 	const [isRed, setIsRed] = useState(true);
+	const [isChecked, setIsChecked] = useState(false);
 
 	return (
 		<div>
@@ -11,9 +12,11 @@ function App() {
 				onClick={() => {
 					setIsRed((prevState) => !prevState);
 				}}
+				disabled={isChecked}
 			>
 				{isRed ? 'Change to blue' : 'Change to red'}
 			</button>
+			<input type="checkbox" value={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
 		</div>
 	);
 }
