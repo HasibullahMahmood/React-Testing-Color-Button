@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App, { replaceCamelWithSpace } from './App';
 
 test('Change bg color button work properly', () => {
 	render(<App />);
@@ -31,4 +31,18 @@ test('Click checkbox and button is disabled', () => {
 	expect(checkbox).not.toBeChecked();
 	expect(button).toBeEnabled();
 	expect(button).not.toHaveStyle('backgroundColor: gray');
+});
+
+describe('Replace camel with space works', () => {
+	test('Single word camel case works', () => {
+		expect(replaceCamelWithSpace('Red')).toBe('Red');
+	});
+
+	test('Two word camel case to space works', () => {
+		expect(replaceCamelWithSpace('MidnightBlue')).toBe('Midnight Blue');
+	});
+
+	test('Multi word camel case to space works', () => {
+		expect(replaceCamelWithSpace('MediumVioletRed')).toBe('Medium Violet Red');
+	});
 });

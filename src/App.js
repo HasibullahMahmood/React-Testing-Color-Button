@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 
+export const replaceCamelWithSpace = (stringVariable) => {
+	return stringVariable.replace(/\B([A-Z])\B/g, ' $1');
+};
+
 function App() {
 	const [isRed, setIsRed] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
