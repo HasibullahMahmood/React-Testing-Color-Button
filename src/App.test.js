@@ -3,11 +3,12 @@ import App, { replaceCamelWithSpace } from './App';
 
 test('Change bg color button work properly', () => {
 	render(<App />);
-	const button = screen.getByRole('button', { name: 'Change to blue' });
-	expect(button).toHaveStyle({ backgroundColor: 'red' });
+	const button = screen.getByRole('button', { name: 'Change to Midnight Blue' });
+	expect(button).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 	fireEvent.click(button);
-	expect(button).toHaveStyle({ backgroundColor: 'blue' });
-	expect(button.textContent).toBe('Change to red');
+	expect(button).toHaveStyle({ backgroundColor: 'MidnightBlue' });
+	// expect( button.textContent ).toBe( 'Change to Medium Violet Red' );
+	expect(button).toHaveTextContent('Change to Medium Violet Red');
 });
 
 test('Check whether initially button is enabled and checkbox is unchecked', () => {

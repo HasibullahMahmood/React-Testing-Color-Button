@@ -6,20 +6,22 @@ export const replaceCamelWithSpace = (stringVariable) => {
 };
 
 function App() {
-	const [isRed, setIsRed] = useState(true);
+	const [isPrimaryColor, setIsPrimaryColor] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
-	let backgroundColor = isRed ? 'red' : 'blue';
+	let backgroundColor = isPrimaryColor ? 'MediumVioletRed' : 'MidnightBlue';
 	backgroundColor = isChecked ? 'gray' : backgroundColor;
 	return (
 		<div>
 			<button
 				style={{ backgroundColor }}
 				onClick={() => {
-					setIsRed((prevState) => !prevState);
+					setIsPrimaryColor((prevState) => !prevState);
 				}}
 				disabled={isChecked}
 			>
-				{isRed ? 'Change to blue' : 'Change to red'}
+				{isPrimaryColor
+					? `Change to ${replaceCamelWithSpace('MidnightBlue')}`
+					: `Change to ${replaceCamelWithSpace('MediumVioletRed')}`}
 			</button>
 			<input
 				type="checkbox"
